@@ -1,4 +1,4 @@
-package com.dameng.dmgeo.dzzhyj.xyzc.domain;
+package com.dameng.dmgeo.generic.emergency.yjzl.domain;
 
 import java.util.Date;
 

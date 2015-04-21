@@ -4,7 +4,7 @@
 	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
 <sqlMap namespace="<%tableCode%>">
 	<!-- domain class alias -->
-	<typeAlias alias="<%className%>" type="com.dameng.dmgeo.dzzhyj.yjxy.domain.<%tableCode%>" />
+	<typeAlias alias="<%className%>" type="com.dameng.dmgeo.generic.emergency.yjzl.domain.<%tableCode%>" />
 
 	<!-- result map -->
 	<resultMap id="<%tableCode%>" class="<%className%>">

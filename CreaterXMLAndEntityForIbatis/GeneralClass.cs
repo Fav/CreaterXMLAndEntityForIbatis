@@ -135,6 +135,7 @@ namespace CreaterXMLAndEntityForIbatis
                         ret = "int?";
                     }
                     break;
+                case "DOUB":
                 case "NUMBE":
                     if (language == "JAVA")
                     {
@@ -145,7 +146,7 @@ namespace CreaterXMLAndEntityForIbatis
                         ret = "double?";
                     }
                     break;
-                     case "CLOB":
+                case "CLOB":
                     if (language == "JAVA")
                     {
                         ret = "double";
@@ -156,7 +157,7 @@ namespace CreaterXMLAndEntityForIbatis
                     }
                     break;
                 default:
-                   
+
                     break;
             }
             return ret;
