@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CreaterXMLAndEntityForIbatis
-{
+{ 
     /// <summary>
     /// 组装类
     /// </summary>

@@ -17,11 +17,11 @@ namespace CreaterXMLAndEntityForIbatis
             string template = "";
             if (language != "JAVA")
             {
-                template = "CreaterXMLAndEntityForIbatis.CXMLTemplate.txt";
+                template = "CXMLTemplate.txt";
             }
             else
             {
-                template = "CreaterXMLAndEntityForIbatis.JXMLTemplate.txt";
+                template = "JXMLTemplate.txt";
             }
             GeneralClass gc = new GeneralClass();
             string content = gc.ReadTemplate(template);

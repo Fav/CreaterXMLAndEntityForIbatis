@@ -11,16 +11,11 @@ namespace CreaterXMLAndEntityForIbatis
     {
         public string ReadTemplate(string template)
         {
-            Stream str =
-            this.GetType().Assembly.GetManifestResourceStream(template);
-            byte[] by = new byte[str.Length];
-            str.Read(by, 0, by.Length);
-            str.Flush();
-            str.Close();
+            string by = File.ReadAllText(template, Encoding.UTF8);
             
             if (by != null && by.Length > 0)
             {
-                return Encoding.UTF8.GetString(by);
+                return by;
             }
             return "";
         }

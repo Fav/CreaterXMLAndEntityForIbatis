@@ -1,0 +1,13 @@
+C:\Users\Administrator\Desktop\sql\CreaterXMLAndEntityForIbatis\CreaterXMLAndEntityForIbatis\bin\Debug\CreaterXMLAndEntityForIbatis.exe.config
+C:\Users\Administrator\Desktop\sql\CreaterXMLAndEntityForIbatis\CreaterXMLAndEntityForIbatis\bin\Debug\CEntityTemplate.txt
+C:\Users\Administrator\Desktop\sql\CreaterXMLAndEntityForIbatis\CreaterXMLAndEntityForIbatis\bin\Debug\CXMLTemplate.txt
+C:\Users\Administrator\Desktop\sql\CreaterXMLAndEntityForIbatis\CreaterXMLAndEntityForIbatis\bin\Debug\JEntityTemplate.txt
+C:\Users\Administrator\Desktop\sql\CreaterXMLAndEntityForIbatis\CreaterXMLAndEntityForIbatis\bin\Debug\JXMLTemplate.txt
+C:\Users\Administrator\Desktop\sql\CreaterXMLAndEntityForIbatis\CreaterXMLAndEntityForIbatis\bin\Debug\CreaterXMLAndEntityForIbatis.exe
+C:\Users\Administrator\Desktop\sql\CreaterXMLAndEntityForIbatis\CreaterXMLAndEntityForIbatis\bin\Debug\CreaterXMLAndEntityForIbatis.pdb
+C:\Users\Administrator\Desktop\sql\CreaterXMLAndEntityForIbatis\CreaterXMLAndEntityForIbatis\obj\Debug\CreaterXMLAndEntityForIbatis.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\sql\CreaterXMLAndEntityForIbatis\CreaterXMLAndEntityForIbatis\obj\Debug\CreaterXMLAndEntityForIbatis.MainForm.resources
+C:\Users\Administrator\Desktop\sql\CreaterXMLAndEntityForIbatis\CreaterXMLAndEntityForIbatis\obj\Debug\CreaterXMLAndEntityForIbatis.Properties.Resources.resources
+C:\Users\Administrator\Desktop\sql\CreaterXMLAndEntityForIbatis\CreaterXMLAndEntityForIbatis\obj\Debug\CreaterXMLAndEntityForIbatis.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\sql\CreaterXMLAndEntityForIbatis\CreaterXMLAndEntityForIbatis\obj\Debug\CreaterXMLAndEntityForIbatis.exe
+C:\Users\Administrator\Desktop\sql\CreaterXMLAndEntityForIbatis\CreaterXMLAndEntityForIbatis\obj\Debug\CreaterXMLAndEntityForIbatis.pdb
