@@ -59,7 +59,7 @@ public class <%actionName%>DaoImpl extends BaseSqlMapDaoSupport implements <%act
      * @return
      */
     @SuppressWarnings("unchecked")
-    public List<<%tableName%>> queryForList(Map<String, Object> params) {
+    public List<<%tableName%>> queryForList(Map<String, ?> params) {
         return getSqlMapClientTemplate().queryForList("<%tableName%>.retrieve_list", params);
     }
 
@@ -69,7 +69,7 @@ public class <%actionName%>DaoImpl extends BaseSqlMapDaoSupport implements <%act
      * @param pageSize
      * @return
      */
-    public PageList queryForPageList(Map<String, Object> params, int pageIndex, int pageSize) {
+    public PageList queryForPageList(Map<String, ?> params, int pageIndex, int pageSize) {
         return queryForPageList("<%tableName%>.query",
                 this.prepareQuery(params), pageIndex, pageSize); 
     }

@@ -26,8 +26,8 @@ public interface <%actionName%>Dao {
 
     public int update(<%tableName%> example);
     
-    public List<<%tableName%>> queryForList(Map<String,Object> params);
+    public List<<%tableName%>> queryForList(Map<String,?> params);
     
-    public PageList queryForPageList(Map<String,Object> params,int pageIndex,int pageSize);
+    public PageList queryForPageList(Map<String,?> params,int pageIndex,int pageSize);
 
 }

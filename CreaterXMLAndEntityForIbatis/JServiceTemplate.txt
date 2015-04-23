@@ -1,12 +1,12 @@
-package com.dameng.dmgeo.generic.duty.service;
+package com.dameng.dmgeo.generic.emergency.yjzl.service;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import com.dameng.dmgeo.generic.common.page.PageInfo;
-import com.dameng.dmgeo.generic.duty.dao.<%actionName%>Dao;
-import com.dameng.dmgeo.generic.duty.domain.<%tableName%>;
+import com.dameng.dmgeo.generic.emergency.yjzl.dao.<%actionName%>Dao;
+import com.dameng.dmgeo.generic.emergency.yjzl.domain.<%tableName%>;
 import com.ibatis.dao.client.DaoException;
 import com.sanxia.waf.core.PageList;
 import com.sanxia.waf.core.base.BaseService;
@@ -35,8 +35,8 @@ public class <%actionName%>Service extends BaseService {
 	 * @param params
 	 * @return
 	 */
-	public <%tableName%> retrieve(Map<String, ?> params){
-		return <%actionVarName%>Dao.retrieve(params);
+	public <%tableName%> retrieve(String key){
+		return <%actionVarName%>Dao.retrieve(key);
 	}
 	/**
 	 * @param obj
