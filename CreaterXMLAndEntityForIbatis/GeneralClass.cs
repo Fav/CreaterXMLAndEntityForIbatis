@@ -210,6 +210,8 @@ namespace CreaterXMLAndEntityForIbatis
         internal static Dictionary<string, string> DicTableAction = new Dictionary<string, string>()
         {
             {"YPCA01A","EmergencyAgency"},
+            {"YPCA02A","EmergencyStaff"},
+            {"YDAA02C","EmergencyExpert"},
         };
 
         internal static string GetTableName(IDictionary<string, string> dic)

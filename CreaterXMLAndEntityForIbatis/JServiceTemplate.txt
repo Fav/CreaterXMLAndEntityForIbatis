@@ -1,6 +1,5 @@
 package com.dameng.dmgeo.generic.emergency.yjzl.service;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -10,9 +9,7 @@ import com.dameng.dmgeo.generic.emergency.yjzl.domain.<%tableName%>;
 import com.ibatis.dao.client.DaoException;
 import com.sanxia.waf.core.PageList;
 import com.sanxia.waf.core.base.BaseService;
-import com.sanxia.waf.util.StringHelper;
 
-import flex.messaging.io.ArrayList;
 
 /**
  *
@@ -66,11 +63,14 @@ public class <%actionName%>Service extends BaseService {
 	  * @return
 	  * @throws DaoException
 	  */
-	public PageList queryForPageList(Map<String, ?> params, PageInfo pageInfo) throws DaoException {
+	public PageList queryForPageList(Map<String, Object> params, PageInfo pageInfo) throws DaoException {
 		return <%actionVarName%>Dao.queryForPageList(params, pageInfo.getPage(), pageInfo.getRows()); 
 	}
+    public PageList queryPageList(Map<String,Object> params,int pageIndex,int pageSize){
+        return <%actionVarName%>Dao.queryForPageList(params, pageIndex, pageSize);
+    }
 	
-	public List  queryForList(Map<String, ?> params) {
+	public List  queryForList(Map<String, Object> params) {
 		return <%actionVarName%>Dao.queryForList(params);
 	}
 

@@ -14,7 +14,6 @@ import com.dameng.dmgeo.generic.emergency.yjzl.domain.<%tableName%>;
 import com.sanxia.waf.core.PageList;
 
 /**
- * 类DutyRecordDao.java的实现描述：应急值班记录 
  * @author <%createTime%>
  */
 public interface <%actionName%>Dao {
@@ -26,8 +25,8 @@ public interface <%actionName%>Dao {
 
     public int update(<%tableName%> example);
     
-    public List<<%tableName%>> queryForList(Map<String,?> params);
+    public List<<%tableName%>> queryForList(Map<String,Object> params);
     
-    public PageList queryForPageList(Map<String,?> params,int pageIndex,int pageSize);
+    public PageList queryForPageList(Map<String,Object> params,int pageIndex,int pageSize);
 
 }

@@ -16,7 +16,6 @@ import com.sanxia.waf.core.PageList;
 import com.sanxia.waf.core.base.BaseSqlMapDaoSupport;
 
 /**
- * 类<%actionName%>DaoImpl.java的实现描述：搬迁避险数据操作Dao 
  */
 public class <%actionName%>DaoImpl extends BaseSqlMapDaoSupport implements <%actionName%>Dao {
 
@@ -59,7 +58,7 @@ public class <%actionName%>DaoImpl extends BaseSqlMapDaoSupport implements <%act
      * @return
      */
     @SuppressWarnings("unchecked")
-    public List<<%tableName%>> queryForList(Map<String, ?> params) {
+    public List<<%tableName%>> queryForList(Map<String, Object> params) {
         return getSqlMapClientTemplate().queryForList("<%tableName%>.retrieve_list", params);
     }
 
@@ -69,7 +68,7 @@ public class <%actionName%>DaoImpl extends BaseSqlMapDaoSupport implements <%act
      * @param pageSize
      * @return
      */
-    public PageList queryForPageList(Map<String, ?> params, int pageIndex, int pageSize) {
+    public PageList queryForPageList(Map<String, Object> params, int pageIndex, int pageSize) {
         return queryForPageList("<%tableName%>.query",
                 this.prepareQuery(params), pageIndex, pageSize); 
     }
