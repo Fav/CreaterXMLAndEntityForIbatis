@@ -1,0 +1,38 @@
+package com.dameng.dmgeo.generic.emergency.yjzl.action;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionForward;
+import org.apache.struts.action.ActionMapping;
+
+import com.dameng.dmgeo.generic.emergency.yjzl.domain.<%tableName%>;
+import com.dameng.dmgeo.generic.emergency.yjzl.service.<%actionName%>Service;
+import com.sanxia.waf.core.ActionContext;
+import com.sanxia.waf.core.base.BaseDispatchAction;
+
+/**
+ * 
+ * 
+ * @author 
+ * @date <%createTime%>
+ * @version 1.0
+ */
+public class <%actionName%>Action extends BaseDispatchAction {
+	
+    /**
+     * 详情查看
+     * @param mapping
+     * @param form
+     * @param request
+     * @param response
+     * @param context
+     * @return
+     * @throws Exception
+     */
+	public ActionForward view(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response,
+			ActionContext context) throws Exception {
+		return mapping.findForward("view");
+	}
+}

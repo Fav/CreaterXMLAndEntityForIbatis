@@ -1,0 +1,77 @@
+package com.dameng.dmgeo.generic.duty.service;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import com.dameng.dmgeo.generic.common.page.PageInfo;
+import com.dameng.dmgeo.generic.duty.dao.<%actionName%>Dao;
+import com.dameng.dmgeo.generic.duty.domain.<%tableName%>;
+import com.ibatis.dao.client.DaoException;
+import com.sanxia.waf.core.PageList;
+import com.sanxia.waf.core.base.BaseService;
+import com.sanxia.waf.util.StringHelper;
+
+import flex.messaging.io.ArrayList;
+
+/**
+ *
+ * @author 
+ * @date <%dateTime%>
+ * @version 1.0
+ */
+public class <%actionName%>Service extends BaseService {
+	private <%actionName%>Dao <%actionVarName%>Dao;
+
+	public <%actionName%>Dao get<%actionName%>Dao() {
+		return <%actionVarName%>Dao;
+	}
+
+
+	public void set<%actionName%>Dao(<%actionName%>Dao <%actionVarName%>Dao) {
+		this.<%actionVarName%>Dao = <%actionVarName%>Dao;
+	}
+	/**
+	 * @param params
+	 * @return
+	 */
+	public <%tableName%> retrieve(Map<String, ?> params){
+		return <%actionVarName%>Dao.retrieve(params);
+	}
+	/**
+	 * @param obj
+	 */
+	 public void update(<%tableName%> obj){
+		 <%actionVarName%>Dao.update(obj);
+	 }
+	 /**
+	  * @param key
+	  */
+	 public void delete(String key){
+		 <%actionVarName%>Dao.delete(key);
+	 }
+	 /**
+	  * @param list
+	  */
+	 public void deleteAll(List list){
+		 for(int i=0;i<list.size();i++){
+			 <%tableName%> obj = (<%tableName%>)list.get(i);
+			 <%actionVarName%>Dao.delete(obj.get<%tableName%>010());
+		 }
+		 
+	 }
+	 /**
+	  * @param params
+	  * @param pageInfo
+	  * @return
+	  * @throws DaoException
+	  */
+	public PageList queryForPageList(Map<String, ?> params, PageInfo pageInfo) throws DaoException {
+		return <%actionVarName%>Dao.queryForPageList(params, pageInfo.getPage(), pageInfo.getRows()); 
+	}
+	
+	public List  queryForList(Map<String, ?> params) {
+		return <%actionVarName%>Dao.queryForList(params);
+	}
+
+}

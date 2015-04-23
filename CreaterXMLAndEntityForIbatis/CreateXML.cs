@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CreaterXMLAndEntityForIbatis
 {
-    internal class CreateXML : ICreater
+    internal class CreateXML
     {
         public CreateXML(string create,
             string savePath,
@@ -39,7 +39,7 @@ namespace CreaterXMLAndEntityForIbatis
                           Replace("<%dynamicWhere%>",CreateDynamicWhere(list)).
                           Replace("<%dynamicScope%>",CreateDynamicScope(list));
                 byte[] by = Encoding.Default.GetBytes(content);
-                gc.WriteToFile(savePath + "\\" + GetTableCode(list) + ".xml", by);
+                gc.WriteToFile(savePath + "\\dao\\sqlmap\\" + GetTableCode(list) + ".xml", by);
             }
         }
 
@@ -77,16 +77,7 @@ namespace CreaterXMLAndEntityForIbatis
         /// <returns></returns>
         private string GetTableCode(IDictionary<string, string> list)
         {
-            string retStr = "";
-            foreach (KeyValuePair<string, string> item in list)
-            {
-                if (item.Key.Length == 7)
-                {
-                    retStr = item.Key;
-                    break;
-                }
-            }
-            return retStr;
+            return GeneralClass.GetTableCode(list);
         }
 
         

@@ -51,6 +51,11 @@ namespace CreaterXMLAndEntityForIbatis
 
         public void WriteToFile(string filePath, byte[] by)
         {
+            string dicPath = Path.GetDirectoryName(filePath);
+            if (!Directory.Exists(dicPath))
+            {
+                Directory.CreateDirectory(dicPath);
+            }
             using (FileStream fs =
                 new FileStream(filePath, FileMode.Create, FileAccess.ReadWrite))
             {
@@ -171,6 +176,51 @@ namespace CreaterXMLAndEntityForIbatis
                     break;
             }
             return ret;
+        }
+
+        internal static string GetTableCode(IDictionary<string, string> dic)
+        {
+            string retStr = "";
+            foreach (KeyValuePair<string, string> item in dic)
+            {
+                if (item.Key.Length == 7)
+                {
+                    retStr = item.Key;
+                    break;
+                }
+            }
+            return retStr;
+        }
+
+        internal static string GetActionName(IDictionary<string, string> dic)
+        {
+            string tablename = GetTableCode(dic);
+            if (!DicTableAction.ContainsKey(tablename))
+            {
+                OutLog(tablename+"无action描述");
+                return tablename;
+            }
+            return DicTableAction[tablename];
+        }
+
+        private static void OutLog(string p)
+        {
+            System.Windows.Forms.MessageBox.Show(p);
+        }
+        internal static Dictionary<string, string> DicTableAction = new Dictionary<string, string>()
+        {
+            {"YPCA01A","EmergencyAgency"},
+        };
+
+        internal static string GetTableName(IDictionary<string, string> dic)
+        {
+           return GetTableCode(dic);
+        }
+
+        internal static string GetActionVarName(IDictionary<string, string> dic)
+        {
+            string actionName = GetActionName(dic);
+            return actionName[0].ToString().ToUpper() + actionName.Substring(1);
         }
     }
 }

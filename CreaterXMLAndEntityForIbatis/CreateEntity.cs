@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CreaterXMLAndEntityForIbatis
 {
-    internal class CreateEntity : ICreater
+    internal class CreateEntity
     {
         public CreateEntity(string create,
             string savePath,
@@ -36,11 +36,11 @@ namespace CreaterXMLAndEntityForIbatis
             byte[] by = Encoding.Default.GetBytes(content);
             if (language != "JAVA")
             {
-                gc.WriteToFile(savePath + "\\" + GetTableCode(dic) + ".cs", by);
+                gc.WriteToFile(savePath + "\\domain\\" + GetTableCode(dic) + ".cs", by);
             }
             else
             {
-                gc.WriteToFile(savePath + "\\" + GetTableCode(dic) + ".java", by);
+                gc.WriteToFile(savePath + "\\domain\\" + GetTableCode(dic) + ".java", by);
             }
         }
 
@@ -49,18 +49,9 @@ namespace CreaterXMLAndEntityForIbatis
         /// 替换<%tableName%>
         /// </summary>
         /// <returns></returns>
-        private string GetTableName(IDictionary<string, string> list)
+        private string GetTableName(IDictionary<string, string> dic)
         {
-            string retStr = "";
-            foreach (KeyValuePair<string, string> item in list)
-            {
-                if (item.Key.Length == 7)
-                {
-                    retStr = item.Value;
-                    break;
-                }
-            }
-            return retStr;
+            return GeneralClass.GetTableCode(dic);
         }
 
         /// <summary>

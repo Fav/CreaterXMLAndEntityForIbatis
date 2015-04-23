@@ -1,0 +1,77 @@
+/*
+ * Copyright 2014 dameng.com All right reserved. This software is the
+ * confidential and proprietary information of dameng.com ("Confidential
+ * Information"). You shall not disclose such Confidential Information and shall
+ * use it only in accordance with the terms of the license agreement you entered
+ * into with dameng.com .
+ */
+package com.dameng.dmgeo.generic.emergency.yjzl.dao.sqlmap;
+
+import java.util.List;
+import java.util.Map;
+
+import com.dameng.dmgeo.generic.emergency.yjzl.dao.<%actionName%>Dao;
+import com.dameng.dmgeo.generic.emergency.yjzl.domain.<%tableName%>;
+import com.sanxia.waf.core.PageList;
+import com.sanxia.waf.core.base.BaseSqlMapDaoSupport;
+
+/**
+ * 类<%actionName%>DaoImpl.java的实现描述：搬迁避险数据操作Dao 
+ */
+public class <%actionName%>DaoImpl extends BaseSqlMapDaoSupport implements <%actionName%>Dao {
+
+	/**
+     * @param obj
+     * @return
+     */
+    public int create(<%tableName%> obj) {
+        return getSqlMapClientTemplate().update("<%tableName%>.create", obj);
+    }
+
+    /**
+     * @param id
+     * @return
+     */
+    public int delete(String key) {
+        return this.getSqlMapClientTemplate().delete("<%tableName%>.delete", key);
+    }
+
+    /**
+     * @param id
+     * @return
+     */
+    public <%tableName%> retrieve(String key) {
+        return (<%tableName%>)getSqlMapClientTemplate().queryForObject("<%tableName%>.retrieve", key);
+    }
+
+    /**
+     * @param obj
+     * @return
+     */
+    public int update(<%tableName%> obj) {
+        return getSqlMapClientTemplate().update("<%tableName%>.update", obj);
+    }
+
+    /**
+     * @param params
+     * @param pageIndex
+     * @param pageSize
+     * @return
+     */
+    @SuppressWarnings("unchecked")
+    public List<<%tableName%>> queryForList(Map<String, Object> params) {
+        return getSqlMapClientTemplate().queryForList("<%tableName%>.retrieve_list", params);
+    }
+
+    /**
+     * @param params
+     * @param pageIndex
+     * @param pageSize
+     * @return
+     */
+    public PageList queryForPageList(Map<String, Object> params, int pageIndex, int pageSize) {
+        return queryForPageList("<%tableName%>.query",
+                this.prepareQuery(params), pageIndex, pageSize); 
+    }
+
+}

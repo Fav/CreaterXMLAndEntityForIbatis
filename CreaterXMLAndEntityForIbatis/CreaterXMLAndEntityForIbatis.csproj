@@ -63,10 +63,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActionOperation.cs" />
+    <Compile Include="CreateAction.cs" />
+    <Compile Include="CreateDao.cs" />
     <Compile Include="CreateEntity.cs" />
+    <Compile Include="CreateImp.cs" />
+    <Compile Include="CreateService.cs" />
     <Compile Include="CreateXML.cs" />
     <Compile Include="GeneralClass.cs" />
-    <Compile Include="ICreater.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,7 +110,19 @@
     <Content Include="CXMLTemplate.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="JActionTemplate.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JDaoImplTemplate.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JDaoTemplate.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="JEntityTemplate.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JServiceTemplate.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="JXMLTemplate.txt">
