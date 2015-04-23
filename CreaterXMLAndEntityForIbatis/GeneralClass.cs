@@ -156,6 +156,16 @@ namespace CreaterXMLAndEntityForIbatis
                         ret = "double?";
                     }
                     break;
+                case "BOOL":
+                    if (language == "JAVA")
+                    {
+                        ret = "boolean";
+                    }
+                    else
+                    {
+                        ret = "bool";
+                    }
+                    break;
                 default:
 
                     break;
