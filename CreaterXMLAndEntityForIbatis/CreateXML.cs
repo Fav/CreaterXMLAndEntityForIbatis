@@ -29,17 +29,17 @@ namespace CreaterXMLAndEntityForIbatis
             if (list != null && list.Count > 0)
             {
                 content = content.
-                          Replace("<%tableCode%>", ReplaceTableCode(list)).
-                          Replace("<%className%>", ReplaceTableCode(list)+"Class").
-                          Replace("<%resultMap%>", ReplaceResultMap(list, language)).
-                          Replace("<%allColumn%>",ReplaceAllColumn(list)).
-                          Replace("<%create%>", ReplaceCreate(list)).
-                          Replace("<%update%>", ReplaceUpdate(list, language)).
-                          Replace("<%primarykey%>", ReplacePrimarykey(list)).
-                          Replace("<%dynamicWhere%>",ReplaceDynamicWhere(list)).
-                          Replace("<%dynamicScope%>",ReplaceDynamicScope(list));
+                          Replace("<%tableCode%>", GetTableCode(list)).
+                          Replace("<%className%>", GetTableCode(list)+"Class").
+                          Replace("<%resultMap%>", CreateResultMap(list, language)).
+                          Replace("<%allColumn%>",CreateAllColumn(list)).
+                          Replace("<%create%>", CreateCreateCode(list)).
+                          Replace("<%update%>", CreateUpdate(list, language)).
+                          Replace("<%primarykey%>", CreatePrimarykey(list)).
+                          Replace("<%dynamicWhere%>",CreateDynamicWhere(list)).
+                          Replace("<%dynamicScope%>",CreateDynamicScope(list));
                 byte[] by = Encoding.Default.GetBytes(content);
-                gc.WriteToFile(savePath + "\\" + ReplaceTableCode(list) + ".xml", by);
+                gc.WriteToFile(savePath + "\\" + GetTableCode(list) + ".xml", by);
             }
         }
 
@@ -48,7 +48,7 @@ namespace CreaterXMLAndEntityForIbatis
         /// </summary>
         /// <param name="list"></param>
         /// <returns></returns>
-        private string ReplaceResultMap(IDictionary<string, string> list, string language)
+        private string CreateResultMap(IDictionary<string, string> list, string language)
         {
             string retStr = "";
             foreach (KeyValuePair<string, string> item in list)
@@ -75,7 +75,7 @@ namespace CreaterXMLAndEntityForIbatis
         /// </summary>
         /// <param name="list"></param>
         /// <returns></returns>
-        private string ReplaceTableCode(IDictionary<string, string> list)
+        private string GetTableCode(IDictionary<string, string> list)
         {
             string retStr = "";
             foreach (KeyValuePair<string, string> item in list)
@@ -95,7 +95,7 @@ namespace CreaterXMLAndEntityForIbatis
         /// </summary>
         /// <param name="list"></param>
         /// <returns></returns>
-        private string ReplaceAllColumn(IDictionary<string, string> list)
+        private string CreateAllColumn(IDictionary<string, string> list)
         {
             string retStr = "";
             foreach (KeyValuePair<string, string> item in list)
@@ -113,7 +113,7 @@ namespace CreaterXMLAndEntityForIbatis
         /// </summary>
         /// <param name="list"></param>
         /// <returns></returns>
-        private string ReplaceCreate(IDictionary<string, string> list)
+        private string CreateCreateCode(IDictionary<string, string> list)
         {
             string retStr = "";
             foreach (KeyValuePair<string, string> item in list)
@@ -131,7 +131,7 @@ namespace CreaterXMLAndEntityForIbatis
         /// </summary>
         /// <param name="list"></param>
         /// <returns></returns>
-        private string ReplaceUpdate(IDictionary<string, string> list, string language)
+        private string CreateUpdate(IDictionary<string, string> list, string language)
         {
             string retStr = "";
             foreach (KeyValuePair<string, string> item in list)
@@ -160,7 +160,7 @@ namespace CreaterXMLAndEntityForIbatis
         /// </summary>
         /// <param name="list"></param>
         /// <returns></returns>
-        private string ReplacePrimarykey(IDictionary<string, string> list)
+        private string CreatePrimarykey(IDictionary<string, string> list)
         {
             string retStr = "";
             foreach (KeyValuePair<string, string> item in list)
@@ -179,7 +179,7 @@ namespace CreaterXMLAndEntityForIbatis
         /// </summary>
         /// <param name="list"></param>
         /// <returns></returns>
-        private string ReplaceDynamicWhere(IDictionary<string, string> list)
+        private string CreateDynamicWhere(IDictionary<string, string> list)
         {
             string retStr = "";
             foreach (KeyValuePair<string, string> item in list)
@@ -199,7 +199,7 @@ namespace CreaterXMLAndEntityForIbatis
         /// </summary>
         /// <param name="list"></param>
         /// <returns></returns>
-        private string ReplaceDynamicScope(IDictionary<string, string> list)
+        private string CreateDynamicScope(IDictionary<string, string> list)
         {
             string retStr = "";
             foreach (KeyValuePair<string, string> item in list)

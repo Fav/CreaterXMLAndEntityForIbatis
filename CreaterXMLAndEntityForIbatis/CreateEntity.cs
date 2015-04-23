@@ -27,20 +27,20 @@ namespace CreaterXMLAndEntityForIbatis
             IDictionary<string, string> dic = gc.GetField(sqlPath);
             IDictionary<string, string> list = gc.GetFieldType(sqlPath, language);
             content = content.
-                        Replace("<%tableName%>", ReplaceTableName(dic)).
+                        Replace("<%tableName%>", GetTableName(dic)).
                         Replace("<%creater%>", create).
                         Replace("<%createTime%>", DateTime.Now.ToString()).
-                        Replace("<%className%>", ReplaceClassName(dic)).
-                        Replace("<%allField%>", ReplaceAllField(list, language,dic)).
-                        Replace("<%classContent%>", ReplaceClassContent(list, language));
+                        Replace("<%className%>", GetClassName(dic)).
+                        Replace("<%allField%>", CreateAllField(list, language,dic)).
+                        Replace("<%classContent%>", CreateClassContent(list, language));
             byte[] by = Encoding.Default.GetBytes(content);
             if (language != "JAVA")
             {
-                gc.WriteToFile(savePath + "\\" + ReplaceTableCode(dic) + ".cs", by);
+                gc.WriteToFile(savePath + "\\" + GetTableCode(dic) + ".cs", by);
             }
             else
             {
-                gc.WriteToFile(savePath + "\\" + ReplaceTableCode(dic) + ".java", by);
+                gc.WriteToFile(savePath + "\\" + GetTableCode(dic) + ".java", by);
             }
         }
 
@@ -49,7 +49,7 @@ namespace CreaterXMLAndEntityForIbatis
         /// 替换<%tableName%>
         /// </summary>
         /// <returns></returns>
-        private string ReplaceTableName(IDictionary<string, string> list)
+        private string GetTableName(IDictionary<string, string> list)
         {
             string retStr = "";
             foreach (KeyValuePair<string, string> item in list)
@@ -67,25 +67,16 @@ namespace CreaterXMLAndEntityForIbatis
         /// 替换<%className%>
         /// </summary>
         /// <returns></returns>
-        private string ReplaceClassName(IDictionary<string, string> list)
+        private string GetClassName(IDictionary<string, string> list)
         {
-            string retStr = "";
-            foreach (KeyValuePair<string, string> item in list)
-            {
-                if (item.Key.Length == 7)
-                {
-                    retStr = item.Key;
-                    break;
-                }
-            }
-            return retStr;
+            return GetTableName(list);
         }
 
         /// <summary>
         /// 替换<%classContent%>
         /// </summary>
         /// <returns></returns>
-        private string ReplaceClassContent(IDictionary<string, string> list, string language)
+        private string CreateClassContent(IDictionary<string, string> list, string language)
         {
             string retStr = "";
             foreach (KeyValuePair<string, string> item in list)
@@ -120,7 +111,7 @@ namespace CreaterXMLAndEntityForIbatis
         /// 替换<%allField%>
         /// </summary>
         /// <returns></returns>
-        private string ReplaceAllField(IDictionary<string, string> list, 
+        private string CreateAllField(IDictionary<string, string> list, 
                          string language,IDictionary<string, string> dic)
         {
             string retStr = "";
@@ -148,18 +139,9 @@ namespace CreaterXMLAndEntityForIbatis
         /// </summary>
         /// <param name="list"></param>
         /// <returns></returns>
-        private string ReplaceTableCode(IDictionary<string, string> list)
+        private string GetTableCode(IDictionary<string, string> list)
         {
-            string retStr = "";
-            foreach (KeyValuePair<string, string> item in list)
-            {
-                if (item.Key.Length == 7)
-                {
-                    retStr = item.Key;
-                    break;
-                }
-            }
-            return retStr;
+            return GetTableName(list);
         }
 
     }
