@@ -222,5 +222,11 @@ namespace CreaterXMLAndEntityForIbatis
             string actionName = GetActionName(dic);
             return actionName[0].ToString().ToUpper() + actionName.Substring(1);
         }
+
+        internal string GetDescripe(string sqlPath)
+        {
+            string[] str = File.ReadAllLines(sqlPath, Encoding.UTF8);
+            return str[0].Trim('-');
+        }
     }
 }

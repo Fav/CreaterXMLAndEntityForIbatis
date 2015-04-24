@@ -15,7 +15,12 @@ import com.dameng.dmgeo.generic.emergency.yjzl.domain.<%tableName%>;
 import com.sanxia.waf.core.PageList;
 import com.sanxia.waf.core.base.BaseSqlMapDaoSupport;
 
-/**
+/***
+ * <%tableDescripe%>
+ * 
+ * @author <%creater%>
+ * @date <%createTime%>
+ * @version1.0
  */
 public class <%actionName%>DaoImpl extends BaseSqlMapDaoSupport implements <%actionName%>Dao {
 

@@ -11,11 +11,12 @@ import com.sanxia.waf.core.PageList;
 import com.sanxia.waf.core.base.BaseService;
 
 
-/**
- *
- * @author 
+/***
+ * <%tableDescripe%>
+ * 
+ * @author <%creater%>
  * @date <%createTime%>
- * @version 1.0
+ * @version1.0
  */
 public class <%actionName%>Service extends BaseService {
 	private <%actionName%>Dao <%actionVarName%>Dao;
@@ -23,7 +24,6 @@ public class <%actionName%>Service extends BaseService {
 	public <%actionName%>Dao get<%actionName%>Dao() {
 		return <%actionVarName%>Dao;
 	}
-
 
 	public void set<%actionName%>Dao(<%actionName%>Dao <%actionVarName%>Dao) {
 		this.<%actionVarName%>Dao = <%actionVarName%>Dao;
@@ -55,7 +55,6 @@ public class <%actionName%>Service extends BaseService {
 			 <%tableName%> obj = (<%tableName%>)list.get(i);
 			 <%actionVarName%>Dao.delete(obj.get<%tableName%>010());
 		 }
-		 
 	 }
 	 /**
 	  * @param params
@@ -66,10 +65,21 @@ public class <%actionName%>Service extends BaseService {
 	public PageList queryForPageList(Map<String, Object> params, PageInfo pageInfo) throws DaoException {
 		return <%actionVarName%>Dao.queryForPageList(params, pageInfo.getPage(), pageInfo.getRows()); 
 	}
+	/**
+	 * 
+	 * @param params
+	 * @param pageIndex
+	 * @param pageSize
+	 * @return
+	 */
     public PageList queryPageList(Map<String,Object> params,int pageIndex,int pageSize){
         return <%actionVarName%>Dao.queryForPageList(params, pageIndex, pageSize);
     }
-	
+	/**
+	 * 
+	 * @param params
+	 * @return
+	 */
 	public List  queryForList(Map<String, Object> params) {
 		return <%actionVarName%>Dao.queryForList(params);
 	}

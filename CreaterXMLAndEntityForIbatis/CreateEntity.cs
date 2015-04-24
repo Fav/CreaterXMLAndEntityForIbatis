@@ -28,6 +28,7 @@ namespace CreaterXMLAndEntityForIbatis
             IDictionary<string, string> list = gc.GetFieldType(sqlPath, language);
             content = content.
                         Replace("<%tableName%>", GetTableName(dic)).
+                        Replace("<%tableDescripe%>", gc.GetDescripe(sqlPath)).
                         Replace("<%creater%>", create).
                         Replace("<%createTime%>", DateTime.Now.ToString()).
                         Replace("<%className%>", GetClassName(dic)).
@@ -76,22 +77,22 @@ namespace CreaterXMLAndEntityForIbatis
                 {
                     if (language == "JAVA")
                     {
-                        retStr += "\r\n" +
-                                   "         public " + item.Value + " get" + item.Key + "() { \r\n" +
-                                   "            return " + item.Key + ";\r\n" +
-                                   "         }\r\n" +
-                                   "         public void set" + item.Key + "(" + item.Value + " " + item.Key.Replace('Y', 'y') + ") {\r\n" +
-                                   "            " + item.Key + " = " + item.Key.Replace('Y', 'y') + ";\r\n" +
-                                   "         }";
+                        retStr += 
+                                   "    public " + item.Value + " get" + item.Key + "() { \r\n" +
+                                   "        return " + item.Key + ";\r\n" +
+                                   "    }\r\n\r\n" +
+                                   "    public void set" + item.Key + "(" + item.Value + " " + item.Key.Replace('Y', 'y') + ") {\r\n" +
+                                   "        " + item.Key + " = " + item.Key.Replace('Y', 'y') + ";\r\n" +
+                                   "    }\r\n";
                     }
                     else
                     {
                         retStr += "\r\n" +
-                                   "         public " + item.Value + " _" + item.Key + " \r\n" +
-                                   "        { \r\n" +
-                                   "           get { return _" + item.Key + "; }\r\n" +
-                                   "           set { _" + item.Key + " = value; }\r\n" +
-                                   "         }";
+                                   "    public " + item.Value + " _" + item.Key + " \r\n" +
+                                   "    { \r\n" +
+                                   "        get { return _" + item.Key + "; }\r\n" +
+                                   "        set { _" + item.Key + " = value; }\r\n" +
+                                   "    }\r\n";
                     }
                 }
             }
@@ -112,13 +113,15 @@ namespace CreaterXMLAndEntityForIbatis
                 {
                     if (language == "JAVA")
                     {
-                        retStr += "\r\n" +
-                                   "       private " + item.Value + " " + item.Key + ";     //" + dic[item.Key];
+                        retStr += "    /*\r\n" +
+                                  "     * " + dic[item.Key].Trim('\'')+"\r\n"+
+                                  "     */\r\n" +
+                                   "    private " + item.Value + " " + item.Key + ";"+"\r\n";
                     }
                     else
                     {
-                        retStr += "\r\n" +
-                                   "       private " + item.Value + " _" + item.Key + ";     //" + dic[item.Key];
+                        retStr +=
+                                   "    private " + item.Value + " _" + item.Key + ";     //" + dic[item.Key];
                     }
                 }
             }

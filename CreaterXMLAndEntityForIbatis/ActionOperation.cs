@@ -33,8 +33,8 @@ namespace CreaterXMLAndEntityForIbatis
             string sqlPath, 
             string language)
         {
-           // ActionCreateEntity(create, savePath, sqlPath, language);
-           // ActionCreateXML(create, savePath, sqlPath, language);
+            //ActionCreateEntity(create, savePath, sqlPath, language);
+            ActionCreateXML(create, savePath, sqlPath, language);
             ActionCreateAction(create, savePath, sqlPath, language);
             ActionCreateDao(create, savePath, sqlPath, language);
             ActionCreateImp(create, savePath, sqlPath, language);

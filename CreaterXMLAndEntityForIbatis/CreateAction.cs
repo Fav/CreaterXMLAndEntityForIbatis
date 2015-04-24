@@ -25,8 +25,11 @@ namespace CreaterXMLAndEntityForIbatis
             GeneralClass gc = new GeneralClass();
             string content = gc.ReadTemplate(template);
             IDictionary<string, string> dic = gc.GetField(sqlPath);
+            string tableDescripe = gc.GetDescripe(sqlPath);
             content = content.
                         Replace("<%tableName%>", GeneralClass.GetTableName(dic)).
+                        Replace("<%creater%>", create).
+                        Replace("<%tableDescripe%>", gc.GetDescripe(sqlPath)).
                         Replace("<%actionName%>", GeneralClass.GetActionName(dic)).
                         Replace("<%createTime%>", DateTime.Now.ToString());
             byte[] by = Encoding.Default.GetBytes(content);

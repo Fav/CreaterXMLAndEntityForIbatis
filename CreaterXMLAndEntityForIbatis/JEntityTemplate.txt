@@ -1,18 +1,13 @@
 package com.dameng.dmgeo.generic.emergency.yjzl.domain;
 
-import java.util.Date;
-
 /***
- * <%tableName%>
+ * <%tableDescripe%>
  * 
- * @author  <%creater%>
- * @date    <%createTime%>
+ * @author <%creater%>
+ * @date <%createTime%>
  * @version1.0
  */
 public class <%className%> {
-
-    <%allField%>
-
-	<%classContent%>
-	
+<%allField%>
+<%classContent%>
 }

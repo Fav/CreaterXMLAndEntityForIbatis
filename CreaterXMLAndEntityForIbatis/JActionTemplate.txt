@@ -11,12 +11,12 @@ import com.dameng.dmgeo.generic.emergency.yjzl.service.<%actionName%>Service;
 import com.sanxia.waf.core.ActionContext;
 import com.sanxia.waf.core.base.BaseDispatchAction;
 
-/**
+/***
+ * <%tableDescripe%>
  * 
- * 
- * @author 
+ * @author <%creater%>
  * @date <%createTime%>
- * @version 1.0
+ * @version1.0
  */
 public class <%actionName%>Action extends BaseDispatchAction {
 	

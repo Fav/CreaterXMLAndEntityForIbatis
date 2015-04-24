@@ -13,8 +13,12 @@ import java.util.Map;
 import com.dameng.dmgeo.generic.emergency.yjzl.domain.<%tableName%>;
 import com.sanxia.waf.core.PageList;
 
-/**
- * @author <%createTime%>
+/***
+ * <%tableDescripe%>
+ * 
+ * @author <%creater%>
+ * @date <%createTime%>
+ * @version1.0
  */
 public interface <%actionName%>Dao {
     public int create(<%tableName%> record);
