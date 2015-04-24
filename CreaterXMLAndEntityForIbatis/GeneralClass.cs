@@ -56,12 +56,10 @@ namespace CreaterXMLAndEntityForIbatis
             {
                 Directory.CreateDirectory(dicPath);
             }
-            using (FileStream fs =
-                new FileStream(filePath, FileMode.Create, FileAccess.ReadWrite))
-            {
-                fs.Write(by, 0, by.Length);
-                fs.Close();
-            }
+            StreamWriter sw = new StreamWriter(filePath, false, Encoding.UTF8);
+            string str = System.Text.Encoding.Default.GetString(by);
+            sw.Write(str);
+            sw.Close();
         }
 
         public IDictionary<string, string> GetFieldType(string path, string language)
