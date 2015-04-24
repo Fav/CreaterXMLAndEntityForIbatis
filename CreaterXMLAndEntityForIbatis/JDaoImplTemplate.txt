@@ -59,7 +59,7 @@ public class <%actionName%>DaoImpl extends BaseSqlMapDaoSupport implements <%act
      */
     @SuppressWarnings("unchecked")
     public List<<%tableName%>> queryForList(Map<String, Object> params) {
-        return getSqlMapClientTemplate().queryForList("<%tableName%>.retrieve_list", params);
+        return getSqlMapClientTemplate().queryForList("<%tableName%>.query_list", params);
     }
 
     /**
