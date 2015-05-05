@@ -78,14 +78,11 @@
 		</dynamic>
 	</select>
 
-	<select id="retrieve" resultMap="<%tableCode%>" parameterClass="java.util.HashMap">
+	<select id="retrieve" resultMap="<%tableCode%>" parameterClass="java.lang.String">
 		select
 		<include refid="allColumn" />
 		from <%tableCode%>
-		<dynamic prepend="where">
-			<include refid="dynamicWhere" />
-			<include refid="dynamicScope" />
-		</dynamic>
+		where <%primarykey%>
 	</select>
 
 </sqlMap>

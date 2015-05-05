@@ -42,6 +42,12 @@ public class <%actionName%>Service extends BaseService {
 		 <%actionVarName%>Dao.update(obj);
 	 }
 	 /**
+	 * @param obj
+	 */
+	 public void create(<%tableName%> obj){
+		 <%actionVarName%>Dao.create(obj);
+	 }
+	 /**
 	  * @param key
 	  */
 	 public void delete(String key){

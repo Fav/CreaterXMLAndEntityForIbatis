@@ -126,8 +126,8 @@ namespace CreaterXMLAndEntityForIbatis
                         ret = "DateTime";
                     }
                     break;
-                case "NUMB":
                 case "SMAL":
+                case "INT,":
                 case "INTE":
                     if (language == "JAVA")
                     {
@@ -152,11 +152,11 @@ namespace CreaterXMLAndEntityForIbatis
                 case "CLOB":
                     if (language == "JAVA")
                     {
-                        ret = "double";
+                        ret = "String";
                     }
                     else
                     {
-                        ret = "double?";
+                        ret = "string?";
                     }
                     break;
                 case "BOOL":
@@ -207,9 +207,11 @@ namespace CreaterXMLAndEntityForIbatis
         }
         internal static Dictionary<string, string> DicTableAction = new Dictionary<string, string>()
         {
-            {"YPCA01A","EmergencyAgency"},
-            {"YPCA02A","EmergencyStaff"},
-            {"YDAA02C","EmergencyExpert"},
+            //{"YPCA01A","EmergencyAgency"},
+            //{"YPCA02A","EmergencyStaff"},
+            //{"YDAA02C","EmergencyProficient"},
+            {"YPDA08A","EmergencyCases"},
+            {"YPDA02A","DisposalMethod"},
         };
 
         internal static string GetTableName(IDictionary<string, string> dic)
@@ -220,7 +222,7 @@ namespace CreaterXMLAndEntityForIbatis
         internal static string GetActionVarName(IDictionary<string, string> dic)
         {
             string actionName = GetActionName(dic);
-            return actionName[0].ToString().ToUpper() + actionName.Substring(1);
+            return actionName[0].ToString().ToLower() + actionName.Substring(1);
         }
 
         internal string GetDescripe(string sqlPath)
