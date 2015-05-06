@@ -1,0 +1,2 @@
+﻿	<!--<%tableDescripe%> -->	
+	<sqlMap resource="com/dameng/dmgeo/generic/emergency/yjzl/dao/sqlmap/<%tableName%>.xml"/>

@@ -1,15 +1,22 @@
+import com.sanxia.waf.core.ActionContext;
+import com.sanxia.waf.core.base.BaseDispatchAction;
 package com.dameng.dmgeo.generic.emergency.yjzl.action;
-
+import java.util.HashMap;
+import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-
+import com.dameng.dmgeo.generic.common.util.EasyuiUtil;
+import com.dameng.dmgeo.generic.common.util.JsonHelper;
 import com.dameng.dmgeo.generic.emergency.yjzl.domain.<%tableName%>;
 import com.dameng.dmgeo.generic.emergency.yjzl.service.<%actionName%>Service;
 import com.sanxia.waf.core.ActionContext;
+import com.sanxia.waf.core.PageList;
 import com.sanxia.waf.core.base.BaseDispatchAction;
+import com.sanxia.waf.util.RequestHelper;
+import com.sanxia.waf.util.ValueHelper;
 
 /***
  * <%tableDescripe%>
@@ -19,20 +26,129 @@ import com.sanxia.waf.core.base.BaseDispatchAction;
  * @version1.0
  */
 public class <%actionName%>Action extends BaseDispatchAction {
-	
-    /**
-     * 详情查看
-     * @param mapping
-     * @param form
-     * @param request
-     * @param response
-     * @param context
-     * @return
-     * @throws Exception
-     */
+	/**
+	 * 查询
+	 * 
+	 * @param mapping
+	 * @param form
+	 * @param request
+	 * @param response
+	 * @param context
+	 * @return
+	 * @throws Exception
+	 */
+	public ActionForward query(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response,
+			ActionContext context) throws Exception {
+		<%actionName%>Service <%actionVarName%>Service = (<%actionName%>Service) this
+				.getBean(request, "<%actionVarName%>Service");
+
+		int pageIndex = 1;
+		int pageSize = 10;
+
+		String name = request.getParameter("name");
+		String adaptHazard = request.getParameter("adaptHazard");
+
+		Map params = new HashMap<String, String>();
+		if (null != name && "" != name) {
+			params.put("<%tableName%>020", name);
+		}
+		if (null != adaptHazard && "" != adaptHazard) {
+			params.put("<%tableName%>030", adaptHazard);
+		}
+
+		PageList pageList = <%actionVarName%>Service.queryPageList(params,
+				pageIndex, pageSize);
+		response.setCharacterEncoding("utf-8");
+		// 将字符串转换为列表json
+		String json = EasyuiUtil.toDataGridData(pageList);
+		response.getWriter().write(json);
+		return null;
+	}
+
+	/**
+	 * 删除
+	 * 
+	 * @param mapping
+	 * @param form
+	 * @param request
+	 * @param response
+	 * @param context
+	 * @return
+	 * @throws Exception
+	 */
+	public ActionForward delete(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response,
+			ActionContext context) throws Exception {
+
+		String pk = request.getParameter("pk");
+		if (pk == null || pk == "") {
+			return null;
+		}
+		<%actionName%>Service <%actionVarName%>Service = (<%actionName%>Service) this
+				.getBean(request, "<%actionVarName%>Service");
+
+		<%actionVarName%>Service.delete(pk);
+		return null;
+	}
+
+	/**
+	 * 增加
+	 * 
+	 * @param mapping
+	 * @param form
+	 * @param request
+	 * @param response
+	 * @param context
+	 * @return
+	 * @throws Exception
+	 */
+	public ActionForward addSave(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response,
+			ActionContext context) throws Exception {
+
+		Map<String, String> maps = new HashMap<String, String>();
+		// 对页面传过来的表单值封装成对象
+		RequestHelper.getParameter(request, maps);
+		<%tableName%> <%tableVarName%> = new <%tableName%>();
+
+		ValueHelper.populate(<%tableVarName%>, maps);
+		<%tableVarName%>.set<%tableName%>010(java.util.UUID.randomUUID().toString()
+				.replace("-", ""));
+		<%actionName%>Service <%actionVarName%>Service = (<%actionName%>Service) this
+				.getBean(request, "<%actionVarName%>Service");
+		<%actionVarName%>Service.create(<%tableVarName%>);
+		return null;
+	}
+
+	/**
+	 * 详情查看
+	 * 
+	 * @param mapping
+	 * @param form
+	 * @param request
+	 * @param response
+	 * @param context
+	 * @return
+	 * @throws Exception
+	 */
 	public ActionForward view(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response,
 			ActionContext context) throws Exception {
-		return mapping.findForward("view");
+		String key = request.getParameter("pk");
+		if (key == null) {
+			return null;
+		}
+
+		<%actionName%>Service <%actionVarName%>Service = (<%actionName%>Service) this
+				.getBean(request, "<%actionVarName%>Service");
+		<%tableName%> <%tableVarName%> = <%actionVarName%>Service.retrieve(key);
+
+		String data = JsonHelper.toJsonString(<%tableVarName%>);
+		String callbackName = request.getParameter("callback");
+		request.setAttribute("json", callbackName + "(" + data + ")");
+		return mapping.findForward("queryjson");
+
 	}
 }
+

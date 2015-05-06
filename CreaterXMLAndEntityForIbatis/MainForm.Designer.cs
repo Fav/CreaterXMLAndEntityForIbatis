@@ -60,7 +60,7 @@
             this.txtMan.Name = "txtMan";
             this.txtMan.Size = new System.Drawing.Size(139, 21);
             this.txtMan.TabIndex = 1;
-            this.txtMan.Text = "胡晓强";
+            this.txtMan.Text = "huqi";
             // 
             // label1
             // 

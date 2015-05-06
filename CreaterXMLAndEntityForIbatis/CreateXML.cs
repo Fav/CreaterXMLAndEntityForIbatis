@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace CreaterXMLAndEntityForIbatis
 {
-    internal class CreateXML
+    internal class CreateXML : Creater
     {
-        public CreateXML(string create,
+        public override void Run(string create,
             string savePath,
             string sqlPath,
             string language)

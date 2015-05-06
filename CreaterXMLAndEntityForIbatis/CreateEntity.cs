@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace CreaterXMLAndEntityForIbatis
 {
-    internal class CreateEntity
+    internal class CreateEntity : Creater
     {
-        public CreateEntity(string create,
+        public override void Run(string create,
             string savePath,
             string sqlPath,
             string language)

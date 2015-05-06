@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace CreaterXMLAndEntityForIbatis
 {
-    class CreateService
+    class CreateService : Creater
     {
-        public CreateService(string create, string savePath, string sqlPath, string language)
+        public override void Run(string create, string savePath, string sqlPath, string language)
         {
             string template = "";
             if (language != "JAVA")

@@ -64,10 +64,14 @@
   <ItemGroup>
     <Compile Include="ActionOperation.cs" />
     <Compile Include="CreateAction.cs" />
+    <Compile Include="CreateBean.cs" />
     <Compile Include="CreateDao.cs" />
     <Compile Include="CreateEntity.cs" />
     <Compile Include="CreateImp.cs" />
+    <Compile Include="Creater.cs" />
     <Compile Include="CreateService.cs" />
+    <Compile Include="CreateSqlMap.cs" />
+    <Compile Include="CreateStrucs.cs" />
     <Compile Include="CreateXML.cs" />
     <Compile Include="GeneralClass.cs" />
     <Compile Include="MainForm.cs">
@@ -113,6 +117,9 @@
     <Content Include="JActionTemplate.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="JBeanTemplate.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="JDaoImplTemplate.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -123,6 +130,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="JServiceTemplate.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JSqlMapTemplate.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="JStrucsTemplate.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="JXMLTemplate.txt">

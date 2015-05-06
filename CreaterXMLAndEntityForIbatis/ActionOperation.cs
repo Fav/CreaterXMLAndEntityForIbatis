@@ -28,57 +28,28 @@ namespace CreaterXMLAndEntityForIbatis
             }
         }
 
-        public void ActionCreate(string create, 
-            string savePath, 
-            string sqlPath, 
-            string language)
-        {
-            //ActionCreateEntity(create, savePath, sqlPath, language);
-            //ActionCreateXML(create, savePath, sqlPath, language);
-            ActionCreateAction(create, savePath, sqlPath, language);
-            ActionCreateDao(create, savePath, sqlPath, language);
-            ActionCreateImp(create, savePath, sqlPath, language);
-            ActionCreateService(create, savePath, sqlPath, language);
-
-        }
-
-        private void ActionCreateService(string create, string savePath, string sqlPath, string language)
-        {
-            CreateService c = new CreateService(create, savePath, sqlPath, language);
-        }
-
-        private void ActionCreateImp(string create, string savePath, string sqlPath, string language)
-        {
-            CreateImp c = new CreateImp(create, savePath, sqlPath, language);
-        }
-
-        private void ActionCreateDao(string create, string savePath, string sqlPath, string language)
-        {
-            CreateDao c = new CreateDao(create, savePath, sqlPath, language);
-        }
-
-        private void ActionCreateAction(string create,
+        public void ActionCreate(string create,
             string savePath,
             string sqlPath,
             string language)
         {
-            CreateAction c = new CreateAction(create, savePath, sqlPath, language);
+            List<Creater> lst = new List<Creater>()
+            {
+                new CreateService(),
+                new CreateImp(),
+                new CreateDao(),
+                new CreateAction(),
+                new CreateEntity(),
+                new CreateXML(),
+                new CreateBean(),
+                new CreateStrucs(),
+                new CreateSqlMap(),
+            };
+            foreach (var item in lst)
+            {
+                item.Run(create, savePath, sqlPath, language);
+            }
         }
 
-        private void ActionCreateEntity(string create,
-            string savePath,
-            string sqlPath,
-            string language)
-        {
-            CreateEntity c = new CreateEntity(create, savePath, sqlPath, language);
-        }
-
-        private void ActionCreateXML(string create,
-            string savePath,
-            string sqlPath,
-            string language)
-        {
-            CreateXML c = new CreateXML(create, savePath, sqlPath, language);
-        }
     }
 }

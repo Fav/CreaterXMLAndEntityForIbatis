@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace CreaterXMLAndEntityForIbatis
 {
-    public class CreateAction
+    public class CreateAction:Creater
     {
-        public CreateAction(string create,
+        public override void Run(string create,
             string savePath,
             string sqlPath,
             string language)
@@ -28,9 +28,11 @@ namespace CreaterXMLAndEntityForIbatis
             string tableDescripe = gc.GetDescripe(sqlPath);
             content = content.
                         Replace("<%tableName%>", GeneralClass.GetTableName(dic)).
+                        Replace("<%tableVarName%>", GeneralClass.GetTableName(dic).ToLower()). 
                         Replace("<%creater%>", create).
                         Replace("<%tableDescripe%>", gc.GetDescripe(sqlPath)).
                         Replace("<%actionName%>", GeneralClass.GetActionName(dic)).
+                        Replace("<%actionVarName%>", GeneralClass.GetActionVarName(dic)).
                         Replace("<%createTime%>", DateTime.Now.ToString());
             byte[] by = Encoding.Default.GetBytes(content);
             if (language != "JAVA")

@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace CreaterXMLAndEntityForIbatis
 {
-    public class CreateDao : Creater
+    class CreateBean : Creater
     {
-
         public override void Run(string create, string savePath, string sqlPath, string language)
         {
             string template = "";
@@ -18,16 +17,17 @@ namespace CreaterXMLAndEntityForIbatis
             }
             else
             {
-                template = "JDaoTemplate.txt";
+                template = "JBeanTemplate.txt";
             }
             GeneralClass gc = new GeneralClass();
             string content = gc.ReadTemplate(template);
             IDictionary<string, string> dic = gc.GetField(sqlPath);
             content = content.
-                        Replace("<%tableName%>",GeneralClass.GetTableName(dic)).
+                        Replace("<%tableName%>", GeneralClass.GetTableName(dic)).
                         Replace("<%tableDescripe%>", gc.GetDescripe(sqlPath)).
                         Replace("<%creater%>", create).
                         Replace("<%actionName%>", GeneralClass.GetActionName(dic)).
+                        Replace("<%actionVarName%>", GeneralClass.GetActionVarName(dic)).
                         Replace("<%createTime%>", DateTime.Now.ToString());
             byte[] by = Encoding.Default.GetBytes(content);
             if (language != "JAVA")
@@ -36,7 +36,7 @@ namespace CreaterXMLAndEntityForIbatis
             }
             else
             {
-                gc.WriteToFile(savePath + "\\dao\\" + GeneralClass.GetActionName(dic) + "Dao.java", by);
+                gc.WriteToFile(savePath + "\\bean.txt", by,true,true);
             }
         }
     }

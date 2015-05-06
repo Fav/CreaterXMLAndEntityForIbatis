@@ -49,16 +49,20 @@ namespace CreaterXMLAndEntityForIbatis
             return retlist;
         }
 
-        public void WriteToFile(string filePath, byte[] by)
+        public void WriteToFile(string filePath, byte[] by,bool append = false,bool endWithNewLine=false)
         {
             string dicPath = Path.GetDirectoryName(filePath);
             if (!Directory.Exists(dicPath))
             {
                 Directory.CreateDirectory(dicPath);
             }
-            StreamWriter sw = new StreamWriter(filePath, false, Encoding.UTF8);
+            StreamWriter sw = new StreamWriter(filePath, append, Encoding.UTF8);
             string str = System.Text.Encoding.Default.GetString(by);
             sw.Write(str);
+            if (endWithNewLine)
+            {
+                sw.WriteLine(sw.NewLine);
+            }
             sw.Close();
         }
 
@@ -212,6 +216,10 @@ namespace CreaterXMLAndEntityForIbatis
             //{"YDAA02C","EmergencyProficient"},
             {"YPDA08A","EmergencyCases"},
             {"YPDA02A","DisposalMethod"},
+            {"YPAA04A","DisasterReceiving"},
+            {"YPAA05A","DangerReceiving"},
+
+
         };
 
         internal static string GetTableName(IDictionary<string, string> dic)
