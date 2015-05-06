@@ -1,5 +1,5 @@
 ﻿	<!--<%tableDescripe%> -->
-	<bean id="<%actionVarName%>ActionDao" class="com.dameng.dmgeo.generic.emergency.yjzl.dao.sqlmap.<%actionName%>DaoImpl">
+	<bean id="<%actionVarName%>Dao" class="com.dameng.dmgeo.generic.emergency.yjzl.dao.sqlmap.<%actionName%>DaoImpl">
 		<property name="sqlMapClient" ref="sqlMapClient_emergency" />
 	</bean>	
 	<bean id="<%actionVarName%>Service" class="com.dameng.dmgeo.generic.emergency.yjzl.service.<%actionName%>Service">
