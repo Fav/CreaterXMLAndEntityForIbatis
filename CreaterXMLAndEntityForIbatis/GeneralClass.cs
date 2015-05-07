@@ -98,19 +98,12 @@ namespace CreaterXMLAndEntityForIbatis
         private string FilterType(string val, string language)
         {
             string flag = "";
-            if (val.TrimEnd(',').IndexOf(',') != -1)
-            {
-                flag = val.Substring(0, 5);
-            }
-            else
-            {
-                flag = val.Substring(0, 4);
-            }
+            flag = val.Substring(0, 3);
             string ret = "";
             switch (flag.ToUpper())
             {
-                case "VARC":
-                case "CHAR":
+                case "VAR":
+                case "CHA":
                     if (language == "JAVA")
                     {
                         ret = "String";
@@ -120,7 +113,7 @@ namespace CreaterXMLAndEntityForIbatis
                         ret = "string";
                     }
                     break;
-                case "DATE":
+                case "DAT":
                     if (language == "JAVA")
                     {
                         ret = "Date";
@@ -130,9 +123,8 @@ namespace CreaterXMLAndEntityForIbatis
                         ret = "DateTime";
                     }
                     break;
-                case "SMAL":
-                case "INT,":
-                case "INTE":
+                case "SMA":
+                case "INT":
                     if (language == "JAVA")
                     {
                         ret = "int";
@@ -142,8 +134,8 @@ namespace CreaterXMLAndEntityForIbatis
                         ret = "int?";
                     }
                     break;
-                case "DOUB":
-                case "NUMBE":
+                case "DOU":
+                case "NUM":
                     if (language == "JAVA")
                     {
                         ret = "double";
@@ -153,7 +145,7 @@ namespace CreaterXMLAndEntityForIbatis
                         ret = "double?";
                     }
                     break;
-                case "CLOB":
+                case "CLO":
                     if (language == "JAVA")
                     {
                         ret = "String";
@@ -163,7 +155,7 @@ namespace CreaterXMLAndEntityForIbatis
                         ret = "string?";
                     }
                     break;
-                case "BOOL":
+                case "BOO":
                     if (language == "JAVA")
                     {
                         ret = "boolean";

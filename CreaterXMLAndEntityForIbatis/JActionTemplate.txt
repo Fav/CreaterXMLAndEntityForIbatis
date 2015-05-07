@@ -1,5 +1,3 @@
-import com.sanxia.waf.core.ActionContext;
-import com.sanxia.waf.core.base.BaseDispatchAction;
 package com.dameng.dmgeo.generic.emergency.yjzl.action;
 import java.util.HashMap;
 import java.util.Map;
