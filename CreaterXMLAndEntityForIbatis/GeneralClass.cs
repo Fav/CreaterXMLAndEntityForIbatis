@@ -99,78 +99,35 @@ namespace CreaterXMLAndEntityForIbatis
         {
             string flag = "";
             flag = val.Substring(0, 3);
-            string ret = "";
-            switch (flag.ToUpper())
+            if (flag.ToUpper()=="NUM" && !val.Contains(","))
             {
-                case "VAR":
-                case "CHA":
-                    if (language == "JAVA")
-                    {
-                        ret = "String";
-                    }
-                    else
-                    {
-                        ret = "string";
-                    }
-                    break;
-                case "DAT":
-                    if (language == "JAVA")
-                    {
-                        ret = "Date";
-                    }
-                    else
-                    {
-                        ret = "DateTime";
-                    }
-                    break;
-                case "SMA":
-                case "INT":
-                    if (language == "JAVA")
-                    {
-                        ret = "int";
-                    }
-                    else
-                    {
-                        ret = "int?";
-                    }
-                    break;
-                case "DOU":
-                case "NUM":
-                    if (language == "JAVA")
-                    {
-                        ret = "double";
-                    }
-                    else
-                    {
-                        ret = "double?";
-                    }
-                    break;
-                case "CLO":
-                    if (language == "JAVA")
-                    {
-                        ret = "String";
-                    }
-                    else
-                    {
-                        ret = "string?";
-                    }
-                    break;
-                case "BOO":
-                    if (language == "JAVA")
-                    {
-                        ret = "boolean";
-                    }
-                    else
-                    {
-                        ret = "bool";
-                    }
-                    break;
-                default:
-
-                    break;
+                flag = "INT";
             }
-            return ret;
+            string ret = "";
+            return language == "JAVA" ? dicJKey[flag.ToUpper()] : dicCKey[flag.ToUpper()];
         }
+        Dictionary<string, string> dicJKey = new Dictionary<string, string>() {
+            {"VAR","String"},
+            {"CHA","String"},
+            {"DAT","Date"},
+            {"SMA","int"},
+            {"INT","int"},
+            {"DOU","double"},
+            {"NUM","double"},
+            {"CLO","String"},
+            {"BOO","boolean"},
+        };
+        Dictionary<string, string> dicCKey = new Dictionary<string, string>() {
+            {"VAR","string"},
+            {"CHA","string"},
+            {"DAT","DateTime?"},
+            {"SMA","int?"},
+            {"INT","int?"},
+            {"DOU","double?"},
+            {"NUM","double?"},
+            {"CLO","string"},
+            {"BOO","bool"},
+        };
 
         internal static string GetTableCode(IDictionary<string, string> dic)
         {
@@ -210,7 +167,8 @@ namespace CreaterXMLAndEntityForIbatis
             {"YPDA02A","DisposalMethod"},
             {"YPAA04A","DisasterReceiving"},
             {"YPAA05A","DangerReceiving"},
-
+            {"ABCD01A","RegistrationInfo"},
+            {"YPAA02A","VerifyRecords"},
 
         };
 

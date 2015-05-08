@@ -35,12 +35,12 @@ namespace CreaterXMLAndEntityForIbatis
         {
             List<Creater> lst = new List<Creater>()
             {
+                new CreateEntity(),
+                new CreateXML(),
                 new CreateService(),
                 new CreateImp(),
                 new CreateDao(),
                 new CreateAction(),
-                new CreateEntity(),
-                new CreateXML(),
                 new CreateBean(),
                 new CreateStrucs(),
                 new CreateSqlMap(),
