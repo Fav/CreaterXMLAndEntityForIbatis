@@ -158,19 +158,26 @@ namespace CreaterXMLAndEntityForIbatis
         {
             System.Windows.Forms.MessageBox.Show(p);
         }
-        internal static Dictionary<string, string> DicTableAction = new Dictionary<string, string>()
+        internal static void GetDicTableAction()
         {
-            //{"YPCA01A","EmergencyAgency"},
-            //{"YPCA02A","EmergencyStaff"},
-            //{"YDAA02C","EmergencyProficient"},
-            {"YPDA08A","EmergencyCases"},
-            {"YPDA02A","DisposalMethod"},
-            {"YPAA04A","DisasterReceiving"},
-            {"YPAA05A","DangerReceiving"},
-            {"ABCD01A","RegistrationInfo"},
-            {"YPAA02A","VerifyRecords"},
-
-        };
+            try
+            {
+                string[] strs = File.ReadAllLines("ActionName.txt");
+                for (int i = 0; i < strs.Length; i++)
+                {
+                    string[] strcontent = strs[i].Split(',');
+                    if (!DicTableAction.ContainsKey(strcontent[0]))
+                    {
+                        DicTableAction.Add(strcontent[0], strcontent[1]);
+                    }
+                }
+            }
+            catch
+            {
+                OutLog("action名配置文件出错");
+            }
+        }
+        internal static Dictionary<string, string> DicTableAction = new Dictionary<string, string>();
 
         internal static string GetTableName(IDictionary<string, string> dic)
         {

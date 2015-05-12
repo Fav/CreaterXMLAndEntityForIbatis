@@ -1,0 +1,6 @@
+YPDA08A,EmergencyCases
+YPDA02A,DisposalMethod
+YPAA04A,DisasterReceiving
+YPAA05A,DangerReceiving
+ABCD01A,RegistrationInfo
+YPAA02A,VerifyRecords
