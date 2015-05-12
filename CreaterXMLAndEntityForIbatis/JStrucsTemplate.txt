@@ -1,3 +1,3 @@
 ﻿	<!--<%tableDescripe%> -->	
-       	<action path="/yjzl/<%actionName%>Action" type="com.dameng.dmgeo.generic.emergency.yjzl.action.<%actionName%>Action">
+       	<action path="/<%packageName%>/<%actionName%>Action" type="com.dameng.dmgeo.generic.emergency.<%packageName%>.action.<%actionName%>Action">
 		</action>

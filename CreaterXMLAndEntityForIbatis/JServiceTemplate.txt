@@ -1,11 +1,11 @@
-package com.dameng.dmgeo.generic.emergency.yjzl.service;
+package com.dameng.dmgeo.generic.emergency.<%packageName%>.service;
 
 import java.util.List;
 import java.util.Map;
 
 import com.dameng.dmgeo.generic.common.page.PageInfo;
-import com.dameng.dmgeo.generic.emergency.yjzl.dao.<%actionName%>Dao;
-import com.dameng.dmgeo.generic.emergency.yjzl.domain.<%tableName%>;
+import com.dameng.dmgeo.generic.emergency.<%packageName%>.dao.<%actionName%>Dao;
+import com.dameng.dmgeo.generic.emergency.<%packageName%>.domain.<%tableName%>;
 import com.ibatis.dao.client.DaoException;
 import com.sanxia.waf.core.PageList;
 import com.sanxia.waf.core.base.BaseService;

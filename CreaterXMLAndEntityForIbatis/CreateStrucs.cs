@@ -8,36 +8,14 @@ namespace CreaterXMLAndEntityForIbatis
 {
     class CreateStrucs : Creater
     {
-        public override void Run(string create, string savePath, string sqlPath, string language)
+        public override void OutJFile(IDictionary<string, string> dic, byte[] by)
         {
-            string template = "";
-            if (language != "JAVA")
-            {
-                //template = "CEntityTemplate.txt";
-            }
-            else
-            {
-                template = "JStrucsTemplate.txt";
-            }
-            GeneralClass gc = new GeneralClass();
-            string content = gc.ReadTemplate(template);
-            IDictionary<string, string> dic = gc.GetField(sqlPath);
-            content = content.
-                        Replace("<%tableName%>", GeneralClass.GetTableName(dic)).
-                        Replace("<%tableDescripe%>", gc.GetDescripe(sqlPath)).
-                        Replace("<%creater%>", create).
-                        Replace("<%actionName%>", GeneralClass.GetActionName(dic)).
-                        Replace("<%actionVarName%>", GeneralClass.GetActionVarName(dic)).
-                        Replace("<%createTime%>", DateTime.Now.ToString());
-            byte[] by = Encoding.Default.GetBytes(content);
-            if (language != "JAVA")
-            {
-                //gc.WriteToFile(savePath + "\\action\\" + GetTableCode(dic) + ".cs", by);
-            }
-            else
-            {
-                gc.WriteToFile(savePath + "\\Strucs.txt", by,true,true);
-            }
+            GeneralClass.WriteToFile(savePath + "\\Strucs.txt", by, true, true);
+        }
+
+        public override string GetJTemplate()
+        {
+            return "JStrucsTemplate.txt";
         }
     }
 }

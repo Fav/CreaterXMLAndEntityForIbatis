@@ -33,10 +33,15 @@ namespace CreaterXMLAndEntityForIbatis
             {
                 foreach (string name in lstFileName)
                 {
-                    ActionOperation.Instance.ActionCreate(txtMan.Text,
-                                txtSavePath.Text,
-                                name,
-                                cmbLanguage.Text);
+                    CInputInfo info = new CInputInfo()
+                    {
+                        create = txtMan.Text,
+                        savePath = txtSavePath.Text,
+                        language = cmbLanguage.Text,
+                        sqlPath = name,
+                        packageName = tbPackageName.Text,
+                    };
+                    ActionOperation.Instance.ActionCreate(info);
                 }
                 MessageBox.Show("生成成功！");
             }
@@ -95,6 +100,10 @@ namespace CreaterXMLAndEntityForIbatis
             else if (string.IsNullOrEmpty(cmbLanguage.Text))
             {
                 retStr = "语言不能为空！";
+            }
+            else if (string.IsNullOrEmpty(tbPackageName.Text))
+            {
+                retStr = "包名不能为空！";
             }
             return retStr;
         }

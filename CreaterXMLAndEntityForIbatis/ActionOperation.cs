@@ -28,10 +28,7 @@ namespace CreaterXMLAndEntityForIbatis
             }
         }
 
-        public void ActionCreate(string create,
-            string savePath,
-            string sqlPath,
-            string language)
+        public void ActionCreate(CInputInfo info)
         {
             List<Creater> lst = new List<Creater>()
             {
@@ -47,7 +44,7 @@ namespace CreaterXMLAndEntityForIbatis
             };
             foreach (var item in lst)
             {
-                item.Run(create, savePath, sqlPath, language);
+                item.Run(info);
             }
         }
 

@@ -9,11 +9,9 @@ namespace CreaterXMLAndEntityForIbatis
 {
     internal class CreateXML : Creater
     {
-        public override void Run(string create,
-            string savePath,
-            string sqlPath,
-            string language)
+        public override void Run(CInputInfo info)
         {
+            GetInfo(info);
             string template = "";
             if (language != "JAVA")
             {
@@ -40,7 +38,7 @@ namespace CreaterXMLAndEntityForIbatis
                           Replace("<%dynamicWhere%>",CreateDynamicWhere(list)).
                           Replace("<%dynamicScope%>",CreateDynamicScope(list));
                 byte[] by = Encoding.Default.GetBytes(content);
-                gc.WriteToFile(savePath + "\\dao\\sqlmap\\" + GetTableCode(list) + ".xml", by);
+                GeneralClass.WriteToFile(savePath + "\\dao\\sqlmap\\" + GetTableCode(list) + ".xml", by);
             }
         }
 

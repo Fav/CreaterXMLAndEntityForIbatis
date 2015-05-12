@@ -41,13 +41,15 @@
             this.btnSql = new System.Windows.Forms.Button();
             this.btnCreater = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.tbPackageName = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnSavePath
             // 
             this.btnSavePath.BackColor = System.Drawing.Color.Transparent;
             this.btnSavePath.Image = ((System.Drawing.Image)(resources.GetObject("btnSavePath.Image")));
-            this.btnSavePath.Location = new System.Drawing.Point(444, 198);
+            this.btnSavePath.Location = new System.Drawing.Point(444, 218);
             this.btnSavePath.Name = "btnSavePath";
             this.btnSavePath.Size = new System.Drawing.Size(34, 26);
             this.btnSavePath.TabIndex = 0;
@@ -76,7 +78,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(36, 206);
+            this.label2.Location = new System.Drawing.Point(36, 226);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 12);
             this.label2.TabIndex = 4;
@@ -84,7 +86,7 @@
             // 
             // txtSavePath
             // 
-            this.txtSavePath.Location = new System.Drawing.Point(124, 203);
+            this.txtSavePath.Location = new System.Drawing.Point(124, 223);
             this.txtSavePath.Name = "txtSavePath";
             this.txtSavePath.ReadOnly = true;
             this.txtSavePath.Size = new System.Drawing.Size(314, 21);
@@ -114,7 +116,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Location = new System.Drawing.Point(15, 56);
+            this.label4.Location = new System.Drawing.Point(15, 76);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(83, 12);
             this.label4.TabIndex = 9;
@@ -122,7 +124,7 @@
             // 
             // txtSQL
             // 
-            this.txtSQL.Location = new System.Drawing.Point(124, 54);
+            this.txtSQL.Location = new System.Drawing.Point(124, 74);
             this.txtSQL.Multiline = true;
             this.txtSQL.Name = "txtSQL";
             this.txtSQL.ReadOnly = true;
@@ -133,7 +135,7 @@
             // 
             this.btnSql.BackColor = System.Drawing.Color.Transparent;
             this.btnSql.Image = ((System.Drawing.Image)(resources.GetObject("btnSql.Image")));
-            this.btnSql.Location = new System.Drawing.Point(444, 56);
+            this.btnSql.Location = new System.Drawing.Point(444, 76);
             this.btnSql.Name = "btnSql";
             this.btnSql.Size = new System.Drawing.Size(34, 26);
             this.btnSql.TabIndex = 7;
@@ -145,7 +147,7 @@
             this.btnCreater.BackColor = System.Drawing.Color.Transparent;
             this.btnCreater.Image = ((System.Drawing.Image)(resources.GetObject("btnCreater.Image")));
             this.btnCreater.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCreater.Location = new System.Drawing.Point(417, 238);
+            this.btnCreater.Location = new System.Drawing.Point(417, 258);
             this.btnCreater.Name = "btnCreater";
             this.btnCreater.Size = new System.Drawing.Size(61, 26);
             this.btnCreater.TabIndex = 10;
@@ -159,11 +161,29 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(36, 245);
+            this.label5.Location = new System.Drawing.Point(36, 265);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(365, 12);
             this.label5.TabIndex = 11;
             this.label5.Text = "说明：目前此工具只支持如：“YPAA01A”  的标准命名SQL语句脚本";
+            // 
+            // tbPackageName
+            // 
+            this.tbPackageName.Location = new System.Drawing.Point(124, 47);
+            this.tbPackageName.Name = "tbPackageName";
+            this.tbPackageName.Size = new System.Drawing.Size(139, 21);
+            this.tbPackageName.TabIndex = 1;
+            this.tbPackageName.Text = "dzsb";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Location = new System.Drawing.Point(48, 50);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(41, 12);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "包名：";
             // 
             // MainForm
             // 
@@ -182,7 +202,9 @@
             this.Controls.Add(this.cmbLanguage);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtSavePath);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.tbPackageName);
             this.Controls.Add(this.txtMan);
             this.Controls.Add(this.btnSavePath);
             this.DoubleBuffered = true;
@@ -211,6 +233,8 @@
         private System.Windows.Forms.Button btnSql;
         private System.Windows.Forms.Button btnCreater;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox tbPackageName;
+        private System.Windows.Forms.Label label6;
     }
 }
 

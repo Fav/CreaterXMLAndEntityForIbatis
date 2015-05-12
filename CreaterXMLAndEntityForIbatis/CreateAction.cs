@@ -8,41 +8,14 @@ namespace CreaterXMLAndEntityForIbatis
 {
     public class CreateAction:Creater
     {
-        public override void Run(string create,
-            string savePath,
-            string sqlPath,
-            string language)
+        public override void OutJFile(IDictionary<string, string> dic, byte[] by)
         {
-            string template = "";
-            if (language != "JAVA")
-            {
-                //template = "CEntityTemplate.txt";
-            }
-            else
-            {
-                template = "JActionTemplate.txt";
-            }
-            GeneralClass gc = new GeneralClass();
-            string content = gc.ReadTemplate(template);
-            IDictionary<string, string> dic = gc.GetField(sqlPath);
-            string tableDescripe = gc.GetDescripe(sqlPath);
-            content = content.
-                        Replace("<%tableName%>", GeneralClass.GetTableName(dic)).
-                        Replace("<%tableVarName%>", GeneralClass.GetTableName(dic).ToLower()). 
-                        Replace("<%creater%>", create).
-                        Replace("<%tableDescripe%>", gc.GetDescripe(sqlPath)).
-                        Replace("<%actionName%>", GeneralClass.GetActionName(dic)).
-                        Replace("<%actionVarName%>", GeneralClass.GetActionVarName(dic)).
-                        Replace("<%createTime%>", DateTime.Now.ToString());
-            byte[] by = Encoding.Default.GetBytes(content);
-            if (language != "JAVA")
-            {
-                //gc.WriteToFile(savePath + "\\action\\" + GetTableCode(dic) + ".cs", by);
-            }
-            else
-            {
-                gc.WriteToFile(savePath + "\\action\\" + GeneralClass.GetActionName(dic) + "Action.java", by);
-            }
+            GeneralClass.WriteToFile(savePath + "\\action\\" + GeneralClass.GetActionName(dic) + "Action.java", by);
+        }
+
+        public override string GetJTemplate()
+        {
+            return "JActionTemplate.txt";
         }
     }
 }

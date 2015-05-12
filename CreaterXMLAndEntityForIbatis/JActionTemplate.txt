@@ -1,4 +1,4 @@
-package com.dameng.dmgeo.generic.emergency.yjzl.action;
+package com.dameng.dmgeo.generic.emergency.<%packageName%>.action;
 import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
@@ -8,8 +8,8 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import com.dameng.dmgeo.generic.common.util.EasyuiUtil;
 import com.dameng.dmgeo.generic.common.util.JsonHelper;
-import com.dameng.dmgeo.generic.emergency.yjzl.domain.<%tableName%>;
-import com.dameng.dmgeo.generic.emergency.yjzl.service.<%actionName%>Service;
+import com.dameng.dmgeo.generic.emergency.<%packageName%>.domain.<%tableName%>;
+import com.dameng.dmgeo.generic.emergency.<%packageName%>.service.<%actionName%>Service;
 import com.sanxia.waf.core.ActionContext;
 import com.sanxia.waf.core.PageList;
 import com.sanxia.waf.core.base.BaseDispatchAction;

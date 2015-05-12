@@ -49,7 +49,7 @@ namespace CreaterXMLAndEntityForIbatis
             return retlist;
         }
 
-        public void WriteToFile(string filePath, byte[] by,bool append = false,bool endWithNewLine=false)
+        public static void WriteToFile(string filePath, byte[] by,bool append = false,bool endWithNewLine=false)
         {
             string dicPath = Path.GetDirectoryName(filePath);
             if (!Directory.Exists(dicPath))

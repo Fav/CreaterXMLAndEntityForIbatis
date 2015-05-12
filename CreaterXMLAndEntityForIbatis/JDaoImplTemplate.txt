@@ -5,13 +5,13 @@
  * use it only in accordance with the terms of the license agreement you entered
  * into with dameng.com .
  */
-package com.dameng.dmgeo.generic.emergency.yjzl.dao.sqlmap;
+package com.dameng.dmgeo.generic.emergency.<%packageName%>.dao.sqlmap;
 
 import java.util.List;
 import java.util.Map;
 
-import com.dameng.dmgeo.generic.emergency.yjzl.dao.<%actionName%>Dao;
-import com.dameng.dmgeo.generic.emergency.yjzl.domain.<%tableName%>;
+import com.dameng.dmgeo.generic.emergency.<%packageName%>.dao.<%actionName%>Dao;
+import com.dameng.dmgeo.generic.emergency.<%packageName%>.domain.<%tableName%>;
 import com.sanxia.waf.core.PageList;
 import com.sanxia.waf.core.base.BaseSqlMapDaoSupport;
 
