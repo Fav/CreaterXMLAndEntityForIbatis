@@ -110,8 +110,8 @@ namespace CreaterXMLAndEntityForIbatis
                                    "    public " + item.Value + " get" + item.Key + "() { \r\n" +
                                    "        return " + item.Key + ";\r\n" +
                                    "    }\r\n\r\n" +
-                                   "    public void set" + item.Key + "(" + item.Value + " " + item.Key.Replace('Y', 'y') + ") {\r\n" +
-                                   "        " + item.Key + " = " + item.Key.Replace('Y', 'y') + ";\r\n" +
+                                   "    public void set" + item.Key + "(" + item.Value + " " + GetVarName(item.Key) + ") {\r\n" +
+                                   "        " + item.Key + " = " + GetVarName(item.Key) + ";\r\n" +
                                    "    }\r\n";
                     }
                     else
@@ -126,6 +126,11 @@ namespace CreaterXMLAndEntityForIbatis
                 }
             }
             return retStr;
+        }
+
+        private string GetVarName(string p)
+        {
+            return p[0].ToString().ToLower() + p.Substring(1);
         }
 
         /// <summary>

@@ -29,6 +29,7 @@ namespace CreaterXMLAndEntityForIbatis
                 content = content.
                           Replace("<%tableCode%>", GetTableCode(list)).
                           Replace("<%tableDescripe%>", gc.GetDescripe(sqlPath)).
+                          Replace("<%packageName%>", packageName).
                           Replace("<%className%>", GetTableCode(list)+"Class").
                           Replace("<%resultMap%>", CreateResultMap(list, language)).
                           Replace("<%allColumn%>",CreateAllColumn(list)).

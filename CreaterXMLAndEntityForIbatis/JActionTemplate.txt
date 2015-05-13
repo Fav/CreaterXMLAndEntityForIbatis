@@ -41,8 +41,10 @@ public class <%actionName%>Action extends BaseDispatchAction {
 		<%actionName%>Service <%actionVarName%>Service = (<%actionName%>Service) this
 				.getBean(request, "<%actionVarName%>Service");
 
-		int pageIndex = 1;
-		int pageSize = 10;
+		int pageIndex = request.getParameter("pageIndex") != null ? Integer
+				.parseInt(request.getParameter("pageIndex")) : 1;
+		int pageSize = request.getParameter("pageSize") != null ? Integer
+				.parseInt(request.getParameter("pageSize")) : 10;
 
 		String name = request.getParameter("name");
 		String adaptHazard = request.getParameter("adaptHazard");
