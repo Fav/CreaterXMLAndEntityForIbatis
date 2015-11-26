@@ -1,0 +1,44 @@
+--险情登记
+CREATE TABLE YPAA05A(
+    YPAA05A010 VARCHAR2(36) not null,
+    YPAA05A020 VARCHAR2(6),
+    YPAA05A030 VARCHAR2(64),
+    YPAA05A040 VARCHAR2(20),
+    YPAA05A050 VARCHAR(2),
+    YPAA05A060 VARCHAR(1),
+    YPAA05A070 DATE,
+    YPAA05A080 NUMBER(10,2),
+    YPAA05A090 NUMBER(10,2),
+    YPAA05A100 VARCHAR2(600),
+    YPAA05A110 VARCHAR2(600),
+    YPAA05A120 VARCHAR2(600),
+    YPAA05A130 VARCHAR2(600),
+    YPAA05A140 INT,
+    YPAA05A150 NUMBER(10,2),
+    YPAA05A160 NUMBER(4),
+    YPAA05A170 NUMBER(10,2),
+    YPAA05A180 VARCHAR2(64),
+    YPAA05A190 VARCHAR2(600),
+    primary key (YPAA05A010)
+);
+comment on table YPAA05A is '险情登记';
+comment on column YPAA05A.YPAA05A010 is '险情登记编码';
+comment on column YPAA05A.YPAA05A020 is '行政区编码';
+comment on column YPAA05A.YPAA05A030 is '行政区名';
+comment on column YPAA05A.YPAA05A040 is '隐患点编号';
+comment on column YPAA05A.YPAA05A050 is '灾害类型';
+comment on column YPAA05A.YPAA05A060 is '灾害规模';
+comment on column YPAA05A.YPAA05A070 is '发生时间';
+comment on column YPAA05A.YPAA05A080 is '经度';
+comment on column YPAA05A.YPAA05A090 is '维度';
+comment on column YPAA05A.YPAA05A100 is '威胁对象';
+comment on column YPAA05A.YPAA05A110 is '引发因素';
+comment on column YPAA05A.YPAA05A120 is '具体成因';
+comment on column YPAA05A.YPAA05A130 is '采取措施';
+comment on column YPAA05A.YPAA05A140 is '受威胁人数';
+comment on column YPAA05A.YPAA05A150 is '危险可能损失(万元)';
+comment on column YPAA05A.YPAA05A160 is '威胁土地类型';
+comment on column YPAA05A.YPAA05A170 is '威胁土地面积（平方公里）';
+comment on column YPAA05A.YPAA05A180 is '信息来源';
+comment on column YPAA05A.YPAA05A190 is '备注';
+
